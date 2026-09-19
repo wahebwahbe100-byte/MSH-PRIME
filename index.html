@@ -2266,6 +2266,32 @@ img,svg,video,iframe{max-width:100%}
 }
 </style>
 
+
+<style id="msh-scroll-fix-only">
+/* Scroll fix only: keep the viewport as the vertical scroller.
+   This avoids BODY becoming a separate scroll container because of overflow-x:hidden. */
+html{
+  overflow-y:auto;
+  overflow-x:hidden;
+}
+@supports (overflow:clip){
+  html{overflow-x:clip}
+}
+body{
+  overflow:visible;
+  min-height:100%;
+}
+
+/* Let vertical finger gestures pass through the full-screen hero normally. */
+.hero,
+.hero-track,
+.hero-slide,
+.hero-inner,
+.hero-content{
+  touch-action:pan-y;
+}
+</style>
+
 </head>
 <body>
 <header class="header" data-header="">
